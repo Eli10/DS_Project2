@@ -12,7 +12,7 @@ import csv
 
 class TD_IDF(MRJob):
 
-    OUTPUT_PROTOCOL = CsvProtocol
+    # OUTPUT_PROTOCOL = CsvProtocol
 
     def steps(self):
         return [
@@ -57,6 +57,7 @@ class TD_IDF(MRJob):
             word.append(value[0])
             D.append(value[2])
         N = [total]*len(word)
+        # print("{} - {}".format(docID,total))
         for value in range(len(word)):
             yield (word[value], docID, D[value]), (n[value], N[value])
             # n = value[1]
